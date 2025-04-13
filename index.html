@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="project1/styles.css">
+    
+    <style>
+        body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    /* bc type kroo */
+    background-color:rgb(0, 0, 0); 
+}
+span{
+    /* bg type kroo */
+    /* icon finder mai jaa kr img select kroo or uska img address copy paste */
+    background: url("https://cdn4.iconfinder.com/data/icons/small-n-flat/24/heart-256.png");
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    pointer-events: none;
+    /* type bgs */
+    background-size: cover;
+    left: 50%;
+    top: 50%;
+    /* to make it in exact centre  */
+    transform: translate(-50%,-50%);
+    animation: ani 6s linear;
+}
+@keyframes ani{
+    0%{
+        transform: translate(-50%,-50%);
+        opacity: 1;
+        filter: hue-rotate(0);
+    }
+    100%{
+        transform: translate(-50%,-5000%);
+        opacity: 0;
+        filter: hue-rotate(720deg);
+    }
+}
+
+      </style>
+      
+</head>
+<body>
+
+    
+ 
+    
+<script>
+    // jb koi class or id nhii hota hai toh we used query selector method to solve the question
+// const e = document.querySelector("body")
+// e.addEventListener("mousemove", () => { console.log("moved"); })
+// open in devtools pane to see the console
+// for seeing position of mouse
+// const e = document.querySelector("body")
+// e.addEventListener("mousemove", (event) => { console.log(event.offsetX); })
+
+//jaisai jaisai mouse ka cursor move krega span create hoga
+const e = document.querySelector("body")
+e.addEventListener("mousemove", (event) => { 
+    const xpos=event.offsetX;
+    const ypos=event.offsetY;
+    const espan=document.createElement("span");
+    e.appendChild(espan);
+    //also span create honai kai sath heart ka posi bhi change hoga
+    espan.style.left=xpos+"px";
+    espan.style.top=ypos+"px";
+    const s=Math.random()*100;
+    espan.style.width=s +"px";
+    espan.style.height=s +"px";
+    setTimeout(()=>{
+        espan.remove();
+    },3000);
+ })
+
+</script>
+</body>
+</html>
